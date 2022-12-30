@@ -1,0 +1,32 @@
+version: "3"
+services:
+  dev-short:
+    platform: linux/amd64
+    build:
+      context: ./tools/docker/runtimes/8.0
+      args:
+        WWWGROUP: '${WWWGROUP}'
+    container_name: short
+    hostname: short.vm
+    external_links:
+      - databases:mysql
+
+    environment:
+      VIRTUAL_HOST: short.vm
+      WWWUSER: ${WWWUSER}
+      WWWGROUP: ${WWWGROUP}
+
+    volumes:
+      - ./tools/docker/bash_aliases:/home/developer/.bash_aliases
+      - .:/var/www
+    networks:
+      default:
+        aliases:
+          - short.vm
+    expose:
+      - "80"
+      - "443"
+networks:
+  default:
+    external:
+      name: nginx-proxy
