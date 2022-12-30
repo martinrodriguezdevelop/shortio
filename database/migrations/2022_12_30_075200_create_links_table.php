@@ -1,0 +1,39 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('links', function (Blueprint $table) {
+            $table->id();
+            $table->string('short_url');
+            $table->longText('long_url');
+            $table->string('ip');
+            $table->string('user_id');
+            $table->integer('clicks')->default(0);
+
+            $table->boolean('custom')->default(0);
+            $table->boolean('enabled')->default(1);
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('links');
+    }
+};
