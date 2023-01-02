@@ -1,4 +1,10 @@
-## How to Run
+### DEMO URL
+https://moonlit-lima-edewxminolxs.vapor-farm-g1.com
+
+user: demo@demo.com
+password: demo
+
+## Run local env
 
 ### Step 1 - Add this line to /etc/hosts
 
@@ -22,6 +28,7 @@ sudo docker exec -it shortio /bin/bash
 
 `composer install`
 `php artisan key:generate`
+`php artisan passport:install`
 
 
 ### Step 5 - Run migrations
@@ -29,3 +36,5 @@ sudo docker exec -it shortio /bin/bash
 `php artisan migrate`
 
 ### Step 6 - Go to http://short.vm/
+
+___
