@@ -2,11 +2,10 @@
 
 namespace Tests\Feature;
 
-use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
+use Laravel\Passport\Client;
+
 use Illuminate\Support\Facades\Artisan;
-use Laravel\Passport\Passport;
 use Tests\TestCase;
 
 class OpenShortLinkTest extends TestCase
@@ -19,15 +18,23 @@ class OpenShortLinkTest extends TestCase
         parent::setUp();
         Artisan::call('passport:install');
 
-        $user = User::factory()->create();
-        Passport::actingAs($user);
+        $client = Client::first();
+        $response = $this->post('/oauth/token',[
+            "client_id" => $client->id,
+            "client_secret" => $client->secret,
+            "grant_type" => "client_credentials"
+        ]);
+
+        $this->token = $response->json()['access_token'];
 
     }
 
     public function testOpenShortLinkCountAndRedirect()
     {
 
-        $response = $this->post('/api/shorten', [
+        $response = $this->withHeaders([
+            'Authorization' => 'Bearer ' . $this->token,
+        ])->post('/api/shorten', [
             'url' => 'https://www.google.com',
             'custom' => 'RAID'
         ]);

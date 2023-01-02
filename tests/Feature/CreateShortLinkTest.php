@@ -5,33 +5,45 @@ namespace Tests\Feature;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Artisan;
+use Laravel\Passport\Client;
 use Laravel\Passport\Passport;
 use Tests\TestCase;
 
 class CreateShortLinkTest extends TestCase
 {
     use RefreshDatabase;
+    private $token;
     public function setUp(): void
     {
         parent::setUp();
         Artisan::call('passport:install');
 
-        $user = User::factory()->create();
-        Passport::actingAs($user);
+        $client = Client::first();
+        $response = $this->post('/oauth/token',[
+            "client_id" => $client->id,
+            "client_secret" => $client->secret,
+            "grant_type" => "client_credentials"
+        ]);
+
+        $this->token = $response->json()['access_token'];
     }
 
     public function testStoreShortlinkInvalidRequest()
     {
 
-        $response = $this->post('/api/shorten', []);
+        $response = $this->withHeaders([
+            'Authorization' => 'Bearer ' . $this->token,
+        ])->post('/api/shorten', []);
         $response->assertStatus(302);
     }
 
     
     public function testStoreShortlink()
     {
-        $response = $this->post('/api/shorten', ['url' => 'https://www.google.com']);
-
+        $response = $this->withHeaders([
+            'Authorization' => 'Bearer ' . $this->token,
+        ])->post('/api/shorten', ['url' => 'https://www.google.com']);
+        
         $this->assertDatabaseHas('links', [
             'long_url' => 'https://www.google.com',
             'clicks' => 0,
@@ -43,7 +55,9 @@ class CreateShortLinkTest extends TestCase
 
     public function testStoreLinkCustomEnding()
     {
-        $response = $this->post('/api/shorten', [
+        $response = $this->withHeaders([
+            'Authorization' => 'Bearer ' . $this->token,
+        ])->post('/api/shorten', [
             'url' => 'https://www.google.com',
             'custom' => 'RAID'
         ]);
@@ -61,7 +75,9 @@ class CreateShortLinkTest extends TestCase
 
     public function testStoreLinkCustomEndingFailBecauseLinkAlreadyExists()
     {
-        $response = $this->post('/api/shorten', [
+        $response = $this->withHeaders([
+            'Authorization' => 'Bearer ' . $this->token,
+        ])->post('/api/shorten', [
             'url' => 'https://www.google.com',
             'custom' => 'RAID'
         ]);
@@ -76,7 +92,9 @@ class CreateShortLinkTest extends TestCase
 
         $response->assertStatus(200);
 
-        $response = $this->post('/api/shorten', [
+        $response = $this->withHeaders([
+            'Authorization' => 'Bearer ' . $this->token,
+        ])->post('/api/shorten', [
             'url' => 'https://www.google.com',
             'custom' => 'RAID'
         ]);

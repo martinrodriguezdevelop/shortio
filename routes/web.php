@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AppController;
 use App\Http\Controllers\LinkController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,4 +15,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', [AppController::class, 'index']);
+Route::get('/login', [AppController::class, 'index']);
+
 Route::get('/{shortUrl}', [LinkController::class, 'show']);
+
+
+
+
+
+
+
