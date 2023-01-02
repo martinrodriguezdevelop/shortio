@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "efb75762ad3f8402beb5046890c7bced",
+    "content-hash": "03c82eb375d533aa053a3d20c90fe81e",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -58,16 +58,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.255.6",
+            "version": "3.255.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "3e5f81c576fffa9ce3f03d871189211761721bbc"
+                "reference": "50585058d65fd676ba689783c437d341b1198554"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/3e5f81c576fffa9ce3f03d871189211761721bbc",
-                "reference": "3e5f81c576fffa9ce3f03d871189211761721bbc",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/50585058d65fd676ba689783c437d341b1198554",
+                "reference": "50585058d65fd676ba689783c437d341b1198554",
                 "shasum": ""
             },
             "require": {
@@ -146,9 +146,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.255.6"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.255.7"
             },
-            "time": "2022-12-29T19:20:12+00:00"
+            "time": "2022-12-30T19:22:02+00:00"
         },
         {
             "name": "brick/math",
@@ -1676,6 +1676,74 @@
             "time": "2022-11-09T15:11:38+00:00"
         },
         {
+            "name": "laravel/vapor-cli",
+            "version": "v1.50.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/vapor-cli.git",
+                "reference": "5a28bc8ebcfdd2f12c2cc79e1061e7bb665e2af1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/vapor-cli/zipball/5a28bc8ebcfdd2f12c2cc79e1061e7bb665e2af1",
+                "reference": "5a28bc8ebcfdd2f12c2cc79e1061e7bb665e2af1",
+                "shasum": ""
+            },
+            "require": {
+                "ext-zip": "*",
+                "guzzlehttp/guzzle": "^6.3|^7.0",
+                "illuminate/container": "^6.0|^7.0|^8.0|^9.0",
+                "illuminate/filesystem": "^6.0|^7.0|^8.0|^9.0",
+                "illuminate/support": "^6.0|^7.0|^8.0|^9.0",
+                "league/flysystem": "^1.0|^3.0",
+                "league/flysystem-aws-s3-v3": "^1.0|^3.0",
+                "php": "^7.2|^8.0",
+                "ramsey/uuid": "^3.8|^4.0",
+                "symfony/console": "^4.2|^5.0|^6.0",
+                "symfony/process": "^4.2|^5.0|^6.0",
+                "symfony/var-dumper": "^4.2|^5.0|^6.0",
+                "symfony/yaml": "^4.2|^5.0|^6.0",
+                "vlucas/phpdotenv": "^3.0|^4.0|^5.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.0|^9.0"
+            },
+            "bin": [
+                "vapor"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laravel\\VaporCli\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "The Laravel Vapor CLI",
+            "homepage": "https://github.com/laravel/vapor-cli",
+            "keywords": [
+                "laravel",
+                "vapor"
+            ],
+            "support": {
+                "source": "https://github.com/laravel/vapor-cli/tree/v1.50.0"
+            },
+            "time": "2022-11-28T14:42:27+00:00"
+        },
+        {
             "name": "laravel/vapor-core",
             "version": "v2.26.0",
             "source": {
@@ -2213,6 +2281,76 @@
                 }
             ],
             "time": "2022-12-20T20:21:10+00:00"
+        },
+        {
+            "name": "league/flysystem-aws-s3-v3",
+            "version": "3.10.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/flysystem-aws-s3-v3.git",
+                "reference": "f593bf91f94f2adf4f71513d29f1dfa693f2f640"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/flysystem-aws-s3-v3/zipball/f593bf91f94f2adf4f71513d29f1dfa693f2f640",
+                "reference": "f593bf91f94f2adf4f71513d29f1dfa693f2f640",
+                "shasum": ""
+            },
+            "require": {
+                "aws/aws-sdk-php": "^3.132.4",
+                "league/flysystem": "^3.10.0",
+                "league/mime-type-detection": "^1.0.0",
+                "php": "^8.0.2"
+            },
+            "conflict": {
+                "guzzlehttp/guzzle": "<7.0",
+                "guzzlehttp/ringphp": "<1.1.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "League\\Flysystem\\AwsS3V3\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Frank de Jonge",
+                    "email": "info@frankdejonge.nl"
+                }
+            ],
+            "description": "AWS S3 filesystem adapter for Flysystem.",
+            "keywords": [
+                "Flysystem",
+                "aws",
+                "file",
+                "files",
+                "filesystem",
+                "s3",
+                "storage"
+            ],
+            "support": {
+                "issues": "https://github.com/thephpleague/flysystem-aws-s3-v3/issues",
+                "source": "https://github.com/thephpleague/flysystem-aws-s3-v3/tree/3.10.3"
+            },
+            "funding": [
+                {
+                    "url": "https://ecologi.com/frankdejonge",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/frankdejonge",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/league/flysystem",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2022-10-26T18:15:09+00:00"
         },
         {
             "name": "league/mime-type-detection",
@@ -4139,23 +4277,23 @@
         },
         {
             "name": "ramsey/uuid",
-            "version": "4.7.0",
+            "version": "4.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ramsey/uuid.git",
-                "reference": "5ed9ad582647bbc3864ef78db34bdc1afdcf9b49"
+                "reference": "a1acf96007170234a8399586a6e2ab8feba109d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ramsey/uuid/zipball/5ed9ad582647bbc3864ef78db34bdc1afdcf9b49",
-                "reference": "5ed9ad582647bbc3864ef78db34bdc1afdcf9b49",
+                "url": "https://api.github.com/repos/ramsey/uuid/zipball/a1acf96007170234a8399586a6e2ab8feba109d1",
+                "reference": "a1acf96007170234a8399586a6e2ab8feba109d1",
                 "shasum": ""
             },
             "require": {
                 "brick/math": "^0.8.8 || ^0.9 || ^0.10",
                 "ext-json": "*",
                 "php": "^8.0",
-                "ramsey/collection": "^1.2"
+                "ramsey/collection": "^1.2 || ^2.0"
             },
             "replace": {
                 "rhumsaa/uuid": "self.version"
@@ -4215,7 +4353,7 @@
             ],
             "support": {
                 "issues": "https://github.com/ramsey/uuid/issues",
-                "source": "https://github.com/ramsey/uuid/tree/4.7.0"
+                "source": "https://github.com/ramsey/uuid/tree/4.7.1"
             },
             "funding": [
                 {
@@ -4227,7 +4365,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-12-19T22:30:49+00:00"
+            "time": "2022-12-31T22:20:34+00:00"
         },
         {
             "name": "riverline/multipart-parser",
@@ -6668,6 +6806,80 @@
                 }
             ],
             "time": "2022-12-22T17:53:58+00:00"
+        },
+        {
+            "name": "symfony/yaml",
+            "version": "v6.0.17",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/yaml.git",
+                "reference": "76c08913ea1c50541503a4563b2172710189fa29"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/76c08913ea1c50541503a4563b2172710189fa29",
+                "reference": "76c08913ea1c50541503a4563b2172710189fa29",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.0.2",
+                "symfony/polyfill-ctype": "^1.8"
+            },
+            "conflict": {
+                "symfony/console": "<5.4"
+            },
+            "require-dev": {
+                "symfony/console": "^5.4|^6.0"
+            },
+            "suggest": {
+                "symfony/console": "For validating YAML files using the lint command"
+            },
+            "bin": [
+                "Resources/bin/yaml-lint"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Yaml\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Loads and dumps YAML files",
+            "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/yaml/tree/v6.0.17"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2022-12-14T15:52:41+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
